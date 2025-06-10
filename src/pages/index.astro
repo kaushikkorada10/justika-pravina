@@ -1,0 +1,1398 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layout/Layout.astro";
+import Button from "../components/Button.astro";
+import Antony from "../assets/images/antony.png";
+import Antony2 from "../assets/images/about-antony.avif";
+import Antony3 from "../assets/images/get-in-touch.avif";
+import ServiceImg1 from "../assets/images/personal-injury.avif";
+import ServiceImg2 from "../assets/images/business-law.avif";
+import ServiceImg3 from "../assets/images/criminal-defense.avif";
+import ServiceImg4 from "../assets/images/family-law.avif";
+import ServiceImg5 from "../assets/images/real-estate.avif";
+import ServiceImg6 from "../assets/images/wills-estate.avif";
+import Quote from "../assets/images/quote.png";
+import VideoBgImg from "../assets/images/video-background.avif";
+import Customer1 from "../assets/images/testimonial.avif";
+
+const serviceList = [
+    {
+        src: ServiceImg1,
+        alt: "Personal njury",
+        title: "Personal injury",
+        description:
+            "I defend clients facing criminal charges with a focused, strategic approach to protect your rights and achieve the best possible outcome.",
+    },
+    {
+        src: ServiceImg2,
+        alt: "Business & corporate law",
+        title: "Business & corporate law",
+        description:
+            "I support businesses with contracts, compliance, and legal planning to help you grow confidently and avoid risks.",
+    },
+    {
+        src: ServiceImg3,
+        alt: "Criminal defense",
+        title: "criminal defense",
+        description:
+            "I defend clients facing criminal charges with a focused, strategic approach to protect your rights and achieve the best possible outcome.",
+    },
+    {
+        src: ServiceImg4,
+        alt: "Family law",
+        title: "Family law",
+        description:
+            "I help clients navigate divorce, custody, and family disputes with compassion, clarity, and practical legal solutions.",
+    },
+    {
+        src: ServiceImg5,
+        alt: "Real estate law",
+        title: "Real estate law",
+        description:
+            "Whether buying, selling, or resolving disputes, I provide clear legal guidance to protect your real estate interests.",
+    },
+    {
+        src: ServiceImg6,
+        alt: "Will estate & planning",
+        title: "Will estate & planning",
+        description:
+            "I help you create wills and estate plans that secure your legacy and give your loved ones peace of mind.",
+    },
+];
+
+const testimonials = [
+    {
+        name: "Sarah Mitchell",
+        role: "Small business Owner",
+        image: Customer1,
+        feedback:
+            "Antony was exactly the kind of lawyer I needed—professional, patient, and genuinely invested in my case. He explained every step clearly and made me feel supported throughout a very difficult time. I couldn’t have asked for better representation.",
+    },
+    {
+        name: "Sarah Mitchell",
+        role: "Small business Owner",
+        image: Customer1,
+        feedback:
+            "Antony was exactly the kind of lawyer I needed—professional, patient, and genuinely invested in my case. He explained every step clearly and made me feel supported throughout a very difficult time. I couldn’t have asked for better representation.",
+    },
+    {
+        name: "Sarah Mitchell",
+        role: "Small business Owner",
+        image: Customer1,
+        feedback:
+            "Antony was exactly the kind of lawyer I needed—professional, patient, and genuinely invested in my case. He explained every step clearly and made me feel supported throughout a very difficult time. I couldn’t have asked for better representation.",
+    },
+];
+
+const faqs = [
+    {
+        question: "What type of cases do you handle?",
+        answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
+    },
+    {
+        question: "Do you offer a free consultation?",
+        answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
+    },
+    {
+        question: "How much do you charge for your business?",
+        answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
+    },
+    {
+        question: "Will you personally handle my case?",
+        answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
+    },
+    {
+        question: "How do I get started?",
+        answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
+    },
+];
+---
+
+<Layout>
+    <div id="image-preview" class="image-preview">
+        <img src={ServiceImg1.src} alt="" />
+    </div>
+    <section id="hero" class="hero">
+        <div class="hero__bg bg-1"></div>
+        <div class="hero__bg bg-2"></div>
+        <div class="hero__container container">
+            <div class="hero__content">
+                <p
+                    class="section-label"
+                    aria-label="Section label: Justice, Expertise, Results"
+                >
+                    <span class="section-label__icon" aria-hidden="true">
+                        <i class="ri-auction-fill"></i>
+                    </span>
+                    <span class="section-label__text"
+                        >Justice, Expertise, Results</span
+                    >
+                </p>
+                <h1 class="hero__heading heading">
+                    Your trusted partner for legal solutions
+                </h1>
+
+                <p class="hero__description">
+                    Expert legal guidance for your personal and business needs.
+                    Let's build your strongest case together.
+                </p>
+                <div class="hero__buttons">
+                    <Button
+                        type="btn--primary"
+                        text="Contact now"
+                        iconClass="ri-arrow-right-line"
+                    />
+                    <Button
+                        type="btn--secondary"
+                        text="Free consultation"
+                        iconClass="ri-phone-fill"
+                    />
+                </div>
+            </div>
+            <div class="hero__media">
+                <Image src={Antony} alt="Anthony the lawyer" />
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="about__container container">
+            <div class="about__content">
+                <h2 class="about__heading">
+                    Your advocate. Your voice. <span class="colored-text"
+                        >Your legal ally</span
+                    >
+                </h2>
+                <p class="about__description">
+                    With 20 years of legal experience, I’m committed to helping
+                    individuals and families navigate the legal system with
+                    clarity and confidence. I offer honest advice, strong
+                    representation, and personal attention to every case — from
+                    consultation to resolution. Whether you're facing a legal
+                    challenge or need sound guidance, I’m here to stand by your
+                    side with integrity and focus.
+                </p>
+                <div class="about__advantage" role="list">
+                    <div class="about__advantage-item" role="listitem">
+                        <div class="about__advantage-number">20+</div>
+                        <p class="about__advantage-text">Years of experience</p>
+                    </div>
+                    <div class="about__advantage-item" role="listitem">
+                        <div class="about__advantage-number">500+</div>
+                        <p class="about__advantage-text">Successful cases</p>
+                    </div>
+                    <div class="about__advantage-item" role="listitem">
+                        <div class="about__advantage-number">98%</div>
+                        <p class="about__advantage-text">Client satisfaction</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about__media">
+                <Image src={Antony2} alt="This is antony" />
+            </div>
+        </div>
+    </section>
+    <section id="service" class="service">
+        <div class="service__container container">
+            <h2 class="service__heading">
+                My areas of <span class="colored-text">Expertise</span>
+            </h2>
+            <div class="service__tile-list">
+                {
+                    serviceList.map((service) => {
+                        return (
+                            <article class="service-item">
+                                <div class="service-item__image-wrapper">
+                                    <Image
+                                        class="service-item__image"
+                                        alt={service.alt}
+                                        src={service.src}
+                                    />
+                                </div>
+                                <div class="service-item__content">
+                                    <div class="service-item__header">
+                                        <h3 class="service-item__title">
+                                            {service.title}
+                                        </h3>
+                                        <span
+                                            class="service-item__icon"
+                                            aria-hidden="true"
+                                        >
+                                            <svg
+                                                width="24"
+                                                height="22"
+                                                viewBox="0 0 24 22"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path d="M23.9973 2.07298C24.0376 1.52216 23.6238 1.04297 23.073 1.00267L14.097 0.345886C13.5462 0.305583 13.067 0.719432 13.0267 1.27024C12.9864 1.82106 13.4002 2.30025 13.951 2.34055L21.9297 2.92436L21.3459 10.903C21.3056 11.4538 21.7194 11.933 22.2702 11.9733C22.8211 12.0136 23.3003 11.5998 23.3406 11.049L23.9973 2.07298ZM1 21L1.65362 21.7568L23.6536 2.75682L23 2L22.3464 1.24318L0.34638 20.2432L1 21Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="service-item__description">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </article>
+                        );
+                    })
+                }
+            </div>
+            <div class="service__grid-list">
+                <div class="service-preview"></div>
+                {
+                    serviceList.map((service, index) => (
+                        <article
+                            class="service-item"
+                            data-image={service.src.src}
+                        >
+                            <h3 class="service-item__title">{service.title}</h3>
+                            <p class="service-item__description">
+                                {service.description}
+                            </p>
+                            <span class="service-item__icon" aria-hidden="true">
+                                <svg
+                                    width="24"
+                                    height="22"
+                                    viewBox="0 0 24 22"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M23.9973 2.07298C24.0376 1.52216 23.6238 1.04297 23.073 1.00267L14.097 0.345886C13.5462 0.305583 13.067 0.719432 13.0267 1.27024C12.9864 1.82106 13.4002 2.30025 13.951 2.34055L21.9297 2.92436L21.3459 10.903C21.3056 11.4538 21.7194 11.933 22.2702 11.9733C22.8211 12.0136 23.3003 11.5998 23.3406 11.049L23.9973 2.07298ZM1 21L1.65362 21.7568L23.6536 2.75682L23 2L22.3464 1.24318L0.34638 20.2432L1 21Z" />
+                                </svg>
+                            </span>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+    <section id="why-me" class="why-me">
+        <div class="why-me__container container">
+            <h2 class="why-me__heading">Legal support made simple</h2>
+            <button class="why-me__video video-btn" aria-label="Play video">
+                <span class="icon">
+                    <svg
+                        width="38"
+                        height="49"
+                        viewBox="0 0 38 49"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M37.0596 24.4849L0.083036 48.883L0.0830382 0.0866664L37.0596 24.4849Z"
+                            fill="#C79855"></path>
+                    </svg>
+                </span>
+            </button>
+            <div class="popup" id="video-popup">
+                <div class="popup-content">
+                    <button class="close-btn" aria-label="Close video popup"
+                        >&times;</button
+                    >
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/watch?v=DWw-RxwEK5M"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <ul class="why-me__list">
+                <li class="why-me__item">Personalized legal support</li>
+                <li class="why-me__item">No cost initial consultation</li>
+                <li class="why-me__item">Transparent affordable fees</li>
+            </ul>
+        </div>
+    </section>
+    <section id="testimonial" class="testimonial">
+        <div class="testimonial__container container">
+            <div class="testimonial__intro">
+                <h2 class="testimonial__heading">
+                    Clients <span class="colored-text">Reviews</span>
+                </h2>
+                <p class="testimonial__description">
+                    Real stories from real clients. Here’s what people have to
+                    say about working with me
+                </p>
+                <div class="testimonial__controller">
+                    <button class="left-button">
+                        <i class="ri-arrow-left-long-fill"></i>
+                    </button>
+                    <button class="right-button">
+                        <i class="ri-arrow-right-long-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="testimonial__content">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {
+                            testimonials.map((item) => (
+                                <article
+                                    class="testimonial-item swiper-slide"
+                                    role="group"
+                                    aria-roledescription="slide"
+                                    aria-label={`Testimonial by ${item.name}`}
+                                >
+                                    <div class="testimonial-item__content">
+                                        <div
+                                            class="testimonial-item__icon"
+                                            aria-hidden="true"
+                                        >
+                                            <Image
+                                                src={Quote}
+                                                alt="Quote icon"
+                                                role="presentation"
+                                            />
+                                        </div>
+                                        <blockquote class="testimonial-item__feedback">
+                                            <p>{item.feedback}</p>
+                                        </blockquote>
+                                    </div>
+                                    <div class="testimonial-item__author-image">
+                                        <Image
+                                            src={item.image}
+                                            alt={`Image of ${item.name}`}
+                                        />
+                                    </div>
+                                    <div class="testimonial-item__author-info">
+                                        <h4 class="author-name">{item.name}</h4>
+                                        <p class="author-role">{item.role}</p>
+                                    </div>
+                                </article>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="faq">
+        <div class="faq__container container">
+            <h2 class="faq__heading">
+                Frequently asked <span class="colored-text">questions</span>
+            </h2>
+            <div class="faq__list">
+                {
+                    faqs.map((faq, index) => (
+                        <div class="accordion-item">
+                            <button
+                                id={`accordion-button-${index}`}
+                                class="accordion-item__button"
+                                aria-expanded="false"
+                                aria-controls={`accordion-item__content-${index}`}
+                            >
+                                <>
+                                    <span class="accordion-item__title">
+                                        {faq.question}
+                                    </span>
+                                    <span
+                                        class="accordion-item__icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            width="34"
+                                            height="34"
+                                            viewBox="0 0 34 34"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <g clip-path="url(#clip0_1621_287)">
+                                                <path
+                                                    d="M16.0293 16.0001L16.0293 4.97925L18.0293 4.97925L18.0293 16L29.0501 16.0001L29.0501 18.0001L18.0293 18.0001L18.0293 29.0209L16.0293 29.0209L16.0293 18.0001L5.00845 18.0001L5.00852 16L16.0293 16.0001Z"
+                                                    fill="#C79855"
+                                                />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1621_287">
+                                                    <rect
+                                                        width="24"
+                                                        height="24"
+                                                        fill="white"
+                                                        transform="translate(17.0293 0.029541) rotate(45)"
+                                                    />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                </>
+                            </button>
+                            <div
+                                id={`accordion-item__content-${index}`}
+                                class="accordion-item__content"
+                                aria-labelledby={`accordion-button-${index}`}
+                                role="region"
+                            >
+                                <p>{faq.answer}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="contact__container container">
+            <div class="contact__media">
+                <Image src={Antony3} alt="Image of Antony" />
+            </div>
+            <div class="contact__content">
+                <h2 class="contact__heading">
+                    Get in <span class="colored-text">touch</span>
+                </h2>
+                <form action="#" class="contact-form" method="POST">
+                    <div class="contact-form__row">
+                        <div class="contact-form__group">
+                            <label for="your-name" class="contact-form__label"
+                                >Your name</label
+                            >
+                            <input
+                                type="text"
+                                name="your_name"
+                                id="your-name"
+                                placeholder="Your name"
+                                required
+                                aria-required="true"
+                            />
+                        </div>
+                        <div class="contact-form__group">
+                            <label for="your-email" class="contact-form__label"
+                                >Your email</label
+                            >
+                            <input
+                                type="email"
+                                name="your_email"
+                                id="your-email"
+                                placeholder="Your email"
+                                required
+                                aria-required="true"
+                            />
+                        </div>
+                    </div>
+                    <div class="contact-form__row">
+                        <div class="contact-form__group">
+                            <label for="your-phone" class="contact-form__label"
+                                >Your phone number</label
+                            >
+                            <input
+                                type="tel"
+                                name="your_phone"
+                                id="your-phone"
+                                placeholder="Your phone numebr"
+                            />
+                        </div>
+                        <div class="contact-form__group">
+                            <label
+                                for="service-type"
+                                class="contact-form__label"
+                                >Type of service</label
+                            >
+                            <select
+                                name="service_type"
+                                id="service-type"
+                                required
+                                aria-required="true"
+                            >
+                                <option
+                                    value="Select a service"
+                                    disabled
+                                    selected>Select a service</option
+                                >
+                                <option value="criminal_defense"
+                                    >Criminal defense</option
+                                >
+                                <option value="family_law">Family law</option>
+                                <option value="personal_injury"
+                                    >Personal injury</option
+                                >
+                                <option value="business_and_corporate_law"
+                                    >Business & corporate law</option
+                                >
+                                <option value="real_estate_law"
+                                    >Real estate law</option
+                                >
+                                <option value="wills_and_estate_planning"
+                                    >Wills & estate planning</option
+                                >
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contact-form__row">
+                        <div class="contact-form__group">
+                            <label for="message" class="contact-form__label"
+                                >Message</label
+                            >
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Enter your message"
+                                class="contact-form__textarea"
+                                required></textarea>
+                        </div>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn btn--primary"
+                        aria-label="Send message"
+                    >
+                        <span class="btn__text">Send message</span>
+                        <span class="btn__icon" aria-hidden="true"
+                            ><i class="ri-arrow-right-line"></i></span
+                        >
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style lang="scss">
+    @use "../styles/utils" as *;
+    .image-preview {
+        position: absolute;
+        display: block;
+        width: 400px;
+        height: 400px;
+        top: 0;
+        left: 0;
+        background-color: rgba(179, 177, 177, 0.282);
+        transform: scale(0);
+        transform-origin: center;
+        will-change: transform, top, left;
+        pointer-events: none;
+        overflow: hidden;
+        border-radius: 20px;
+        z-index: 999;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .hero {
+        position: relative;
+        padding-top: calc(var(--space-xl) + 70px);
+        margin-bottom: -50px;
+        &__bg.bg-1 {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 60%;
+            border-radius: 0 0 50px 50px;
+            z-index: -1;
+            background: url("../assets/images/herobg-1.avif") no-repeat center
+                center / cover;
+            overflow: hidden;
+            z-index: -1;
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                right: 0;
+                background-color: #0b2b1bda;
+            }
+        }
+        &__bg.bg-2 {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            left: 0;
+            top: 50%;
+            background: url("../assets/images/herobg-2.avif") no-repeat 50% 50% /
+                cover;
+            z-index: -2;
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                right: 0;
+                background-color: #d5aa6d70;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            color: var(--color-text-white);
+            padding-bottom: 20px;
+            gap: 20px;
+            .section-label {
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10.5px);
+                -webkit-backdrop-filter: blur(10.5px);
+                padding: 4px 20px;
+                border-radius: 50px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                gap: 8px;
+                &__icon {
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: 20px;
+                    line-height: 1;
+                    color: var(--color-primary);
+                }
+            }
+            .hero__heading {
+                color: var(--color-heading-white);
+            }
+            .hero__description {
+                font-size: var(--fs-sm);
+            }
+            .hero__buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+        &__media {
+            text-align: center;
+            img {
+                position: relative;
+            }
+        }
+    }
+
+    .about {
+        position: relative;
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-lg);
+        background-color: var(--color-white);
+        border-radius: 40px 40px 0 0;
+        overflow: hidden;
+        z-index: 1;
+        &__container {
+            gap: var(--space-md);
+        }
+        &__content {
+            display: flex;
+            flex-direction: column;
+            padding-block: var(--space-md);
+            padding-inline: var(--space-sm);
+            background-color: var(--color-background);
+            border-radius: var(--round);
+            gap: 20px;
+        }
+        &__description {
+            font-size: var(--fs-sm);
+        }
+        &__advantage {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            color: var(--color-heading-dark);
+            gap: 20px;
+            &-number {
+                font-family: "Heading", system-ui, sans-serif;
+                font-size: var(--fs-xl);
+            }
+        }
+        &__media {
+            img {
+                max-width: 460px;
+                width: 100%;
+                aspect-ratio: 3 / 3;
+                object-fit: cover;
+                border-radius: var(--round);
+            }
+        }
+    }
+
+    .service {
+        background-color: var(--color-white);
+        padding-top: var(--space-lg);
+        padding-bottom: calc(var(--space-xl) + 50px);
+        margin-bottom: -50px;
+        .service__container {
+            gap: var(--space-md);
+        }
+        &__tile-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            .service-item {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 300px;
+                &__image-wrapper {
+                    border-radius: 20px;
+                    overflow: hidden;
+                    img {
+                        aspect-ratio: 16 / 7;
+                        object-fit: cover;
+                    }
+                }
+                &__header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-block: 10px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid var(--color-border);
+                }
+            }
+        }
+        &-item__title {
+            text-transform: capitalize;
+        }
+        &-item__icon {
+            display: flex;
+            width: fit-content;
+            padding: 12px;
+            border-radius: 100vmax;
+            align-self: baseline;
+            transition:
+                background-color 200ms ease,
+                transform 300ms ease;
+            will-change: transform;
+            svg {
+                width: 24px;
+                fill: var(--color-dark);
+                transition: fill 200ms ease;
+            }
+        }
+
+        &__grid-list {
+            display: none;
+            .service-item {
+                display: flex;
+                justify-content: space-between;
+                padding-block: 30px;
+                gap: 40px;
+                &:nth-of-type(1) {
+                    padding-top: 0;
+                }
+                &:nth-last-of-type(1) {
+                    padding-bottom: 0;
+                }
+                &:not(:nth-last-of-type(1)) {
+                    border-bottom: 1px solid var(--color-border);
+                }
+                &:hover {
+                    .service-item__icon {
+                        background-color: var(--color-primary);
+                        transform: scale(1.2);
+                        svg {
+                            fill: var(--color-white);
+                        }
+                    }
+                }
+
+                &__title {
+                    width: 35%; //
+                }
+
+                &__description {
+                    width: 55%;
+                }
+
+                // &__icon {
+                //     width: fit-content;
+                // }
+            }
+        }
+    }
+    .why-me {
+        position: relative;
+        padding-top: var(--space-xl);
+        padding-bottom: calc(var(--space-xl) + 50px);
+        background: url("../assets/images/video-background.avif") no-repeat
+            center center / cover;
+        border-radius: 40px 40px 0 0;
+        overflow: hidden;
+        margin-bottom: -50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            display: block;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(11, 43, 27, 1) 100%
+            );
+            z-index: inherit;
+        }
+
+        &__container {
+            position: relative;
+            min-height: 55vh;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            z-index: 2;
+        }
+        &__heading {
+            color: var(--color-heading-white);
+            text-align: center;
+        }
+
+        &__video {
+            --size: 85px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--size);
+            height: var(--size);
+            background-color: var(--color-white);
+            padding: 10px;
+            margin: 20px;
+            border-radius: 100vmax;
+            svg {
+                width: 32px;
+                transform: translateX(5px);
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.438);
+                border-radius: 100vmax;
+                transform: scale(1.3);
+                z-index: -1;
+            }
+        }
+        .popup {
+            position: fixed;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.475);
+            z-index: 1000;
+            &-content {
+                position: relative;
+                max-width: 800px;
+                width: 90%;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .video-container {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                height: 0;
+                z-index: 1;
+            }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: var(--color-error);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                font-size: 32px;
+                line-height: 32px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                z-index: 2;
+            }
+            .close-btn:hover {
+                background: #cc0000;
+            }
+            .close-btn:focus {
+                outline: 2px solid #cc0000;
+                outline-offset: 2px;
+            }
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            .why-me__item {
+                position: relative;
+                font-family: "Heading", system-ui, sans-serif;
+                font-size: var(--fs-md);
+                text-align: center;
+                color: var(--color-text-white);
+                padding: 20px;
+                &:nth-of-type(3) {
+                    padding-bottom: 0px;
+                }
+                &:not(:nth-of-type(3))::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    width: 50%;
+                    height: 1px;
+                    background-color: var(--color-border);
+                    transform: translate(-50%, 0);
+                }
+            }
+        }
+    }
+
+    .testimonial {
+        position: relative;
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-lg);
+        background-color: var(--color-white);
+        border-radius: 40px 40px 0 0;
+        overflow: hidden;
+        &__container {
+            gap: var(--space-md);
+        }
+        &__intro {
+            display: grid;
+            gap: 20px;
+        }
+        &__controller {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .right-button,
+            .left-button {
+                padding: 5px 20px;
+                border: 1px solid var(--color-dark);
+                border-radius: 50px;
+                &:hover {
+                    color: var(--color-white);
+                    background-color: var(--color-primary);
+                    border-color: var(--color-primary);
+                }
+            }
+        }
+        &-item {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            background-color: var(--color-background);
+            padding: 25px;
+            border-radius: 20px;
+            gap: 20px;
+
+            &__content {
+                grid-column: 1 / 4;
+                grid-row: 1 / span 5;
+            }
+            &__author-image {
+                grid-column: 1 / 2;
+                img {
+                    border-radius: 20px;
+                    aspect-ratio: 1 / 1;
+                    object-fit: cover;
+                }
+            }
+            &__author-info {
+                grid-column: 2/ 4;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                gap: 5px;
+                .author-role {
+                    font-size: 0.9rem;
+                }
+            }
+            &__feedback p {
+                display: -webkit-box;
+                font-size: 1.1rem;
+                color: var(--color-text-dark);
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .faq {
+        background-color: var(--color-white);
+        padding-block: var(--space-lg);
+        &__container {
+            gap: var(--space-md);
+        }
+        &__heading {
+            .colored-text {
+                display: block;
+            }
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .accordion-item {
+            display: flex;
+            flex-flow: column;
+            gap: 15px;
+
+            &:not(:nth-last-of-type(1)) {
+                border-bottom: 1px solid var(--color-border);
+            }
+            &__button {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                width: 100%;
+                text-align: start;
+                gap: 20px;
+            }
+            &__title {
+                font-family: "Heading", system-ui, sans-serif;
+                font-size: var(--fs-md);
+                color: var(--color-heading-dark);
+            }
+            &__icon {
+                svg {
+                    width: 28px;
+                }
+            }
+            &__button[aria-expanded="false"] {
+                .accordion-item__icon svg {
+                    transform: rotate(0deg);
+                    transition: transform 0.3s linear;
+                }
+            }
+            &__button[aria-expanded="true"] {
+                .accordion-item__icon svg {
+                    transform: rotate(135deg);
+                    transition: transform 0.3s linear;
+                }
+            }
+            &__button[aria-expanded="false"] ~ .accordion-item__content {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition:
+                    padding 200ms linear,
+                    opacity 200ms linear,
+                    max-height 200ms linear;
+                will-change: opacity, max-height;
+            }
+
+            &__button[aria-expanded="true"] ~ .accordion-item__content {
+                opacity: 1;
+                max-height: 9em;
+                padding-bottom: 20px;
+                transition: all 200ms linear;
+                will-change: opacity, max-height, padding;
+            }
+        }
+    }
+
+    .contact {
+        position: relative;
+        background-color: var(--color-white);
+        padding-top: var(--space-lg);
+        padding-bottom: var(--space-xl);
+        border-radius: 0 0 40px 40px;
+        overflow: hidden;
+        margin-bottom: clamp(28.125rem, 22.69rem + 21.739vi, 33.125rem);
+        z-index: inherit;
+        &__container {
+            flex-direction: column-reverse;
+            gap: var(--space-md);
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-background);
+            padding-block: var(--space-md);
+            padding-inline: var(--space-sm);
+            border-radius: var(--round);
+            gap: 20px;
+        }
+        &-form {
+            display: flex;
+            flex-flow: column;
+            gap: 20px;
+
+            input,
+            textarea,
+            select,
+            &__group {
+                width: 100%;
+            }
+
+            input,
+            textarea,
+            select {
+                padding: 12px 20px;
+                border: none;
+                border-radius: 50px;
+            }
+
+            textarea {
+                border-radius: 20px;
+            }
+
+            label {
+                display: none;
+            }
+            &__row:not(:nth-last-of-type(1)) {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        &__media {
+            img {
+                max-width: 440px;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 9/11;
+                object-fit: cover;
+                border-radius: var(--round);
+            }
+        }
+    }
+
+    /*-------------------------------------
+            Responsive Design
+-------------------------------------------
+- Mobile landscape, table, laptop etc
+*/
+
+    @include respond-to("mobile-l") {
+        .testimonial {
+            &-item {
+                grid-template-columns: repeat(4, 1fr);
+                &__content {
+                    grid-column: 1 / 5;
+                }
+            }
+        }
+    }
+    @include respond-to("mobile-xl") {
+        .service {
+            &__heading {
+                text-align: center;
+            }
+        }
+        #why-me {
+            .why-me__list {
+                width: 100%;
+                flex-flow: row wrap;
+                justify-content: center;
+                .why-me__item {
+                    width: 50%;
+                    padding-top: 0;
+                    &::after {
+                        width: 1px;
+                        height: calc(100% - 20px);
+                        left: unset;
+                        top: 0;
+                        right: 0;
+                    }
+                    &:nth-of-type(2)::after {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+        .contact {
+            .contact-form__row:not(:nth-last-of-type(1)) {
+                flex-direction: row;
+            }
+        }
+    }
+    @include respond-to("tablet") {
+        #why-me {
+            .why-me__container {
+                .why-me__list {
+                    flex-flow: row nowrap;
+                    .why-me__item {
+                        &:nth-of-type(2)::after {
+                            background-color: var(--color-border);
+                        }
+                    }
+                }
+            }
+        }
+
+        .testimonial {
+            &__container {
+                flex-flow: row;
+            }
+            &__intro {
+                max-width: 40%;
+                align-content: center;
+            }
+            &__content {
+                max-width: 60%;
+            }
+        }
+        .contact {
+            margin-bottom: clamp(28.125rem, 17.411rem + 22.321vi, 31.25rem);
+        }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1146px) {
+        .contact {
+            margin-bottom: clamp(31.25rem, 15.146rem + 25.974vw, 33.75rem);
+        }
+    }
+    @include respond-to("laptop") {
+        .hero {
+            .bg-1 {
+                top: 0;
+                right: unset;
+                bottom: 0;
+                width: 58%;
+                height: 100%;
+                border-radius: 0 50px 50px 0;
+            }
+
+            .bg-2 {
+                left: unset;
+                right: 0;
+                top: 0;
+                width: 52%;
+                height: 100%;
+                &::before {
+                    background: linear-gradient(
+                        180deg,
+                        rgba(255, 255, 255, 1) 0%,
+                        #d5aa6d70 67%
+                    );
+                }
+            }
+            &__container {
+                flex-direction: row;
+                transform: translateY(-50px);
+                gap: 20px;
+                overflow: hidden;
+            }
+
+            &__content {
+                max-width: 60%;
+                justify-content: center;
+            }
+            &__description {
+                max-width: 550px;
+            }
+            &__media {
+                max-width: 50%;
+                overflow: visible;
+                img {
+                    max-width: 145%;
+                    left: -40%;
+                }
+            }
+        }
+
+        .about {
+            &__container {
+                flex-direction: row-reverse;
+            }
+
+            &__content {
+                max-width: 60%;
+            }
+
+            &__media {
+                max-width: 40%;
+                img {
+                    max-width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .service {
+            &__heading {
+                text-align: center;
+            }
+            .service__tile-list {
+                display: none;
+            }
+
+            &__grid-list {
+                display: block;
+            }
+        }
+
+        .testimonial {
+            &__intro {
+                max-width: 44%;
+            }
+
+            &__content {
+                max-width: 64%;
+            }
+            &-item {
+                grid-template-columns: repeat(5, 1fr);
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 0;
+                &__content {
+                    grid-column: 3/ 6;
+                    grid-row: 1 / 5;
+                    padding-top: 30px;
+                }
+                &__author-image {
+                    grid-column: 1/3;
+                    grid-row: 1 / 6;
+                    img {
+                        height: 100%;
+                    }
+                }
+
+                &__author-info {
+                    grid-column: 3 / 6;
+                    padding-bottom: 30px;
+                }
+            }
+        }
+
+        .faq {
+            &__heading {
+                text-align: center;
+            }
+
+            .accordion-item__content {
+                max-width: 90%;
+            }
+        }
+
+        .contact {
+            border-radius: 0 0 50px 50px;
+            &__container {
+                flex-direction: row;
+            }
+
+            &__media {
+                width: 40%;
+            }
+            &__content {
+                width: 60%;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,506 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "swiper/css";
+import "swiper/css/navigation";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atorney website</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+<script>
+    import Lenis from "lenis";
+    import { gsap } from "gsap";
+    import Swiper from "swiper";
+    import { Navigation } from "swiper/modules";
+
+    // Initialize Swiper
+    const swiper = new Swiper(".mySwiper", {
+        modules: [Navigation],
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+            nextEl: ".right-button",
+            prevEl: ".left-button",
+        },
+    });
+    document.addEventListener("DOMContentLoaded", (e) => {
+        function smoothScroll() {
+            const lenis = new Lenis({
+                wheelMultiplier: 1.5,
+                smoothWheel: true,
+            });
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+        }
+
+        function mobileMenu() {
+            const menuIcon = document.querySelector(".header__menu-toggler");
+            const menu = document.getElementById("main-navigation");
+            let openState = menuIcon?.getAttribute("aria-expanded") === "true";
+
+            menuIcon?.addEventListener("click", (e) => {
+                openState = !openState;
+                menuIcon.setAttribute("aria-expanded", openState);
+                if (openState) {
+                    menu.style.transform = "translateX(0)";
+                } else {
+                    menu.style.transform = "translateX(100%)";
+                }
+            });
+        }
+
+        function accordion() {
+            const items = document.querySelectorAll(".accordion-item__button");
+            function toggleAction(e) {
+                let state = this.getAttribute("aria-expanded");
+                if (state == "false") {
+                    this.setAttribute("aria-expanded", "true");
+                } else {
+                    this.setAttribute("aria-expanded", "false");
+                }
+            }
+
+            items.forEach((item) => {
+                item.addEventListener("click", toggleAction);
+            });
+        }
+
+        function imagePreview() {
+            const previewContainer = document.getElementById("image-preview");
+            const previewImage = previewContainer?.querySelector("img");
+            const serviceSection = document.querySelector(
+                ".service .service__grid-list"
+            );
+            const serviceItems =
+                serviceSection?.querySelectorAll(".service-item");
+
+            // Exit early if required elements are missing
+            if (
+                !previewContainer ||
+                !previewImage ||
+                !serviceSection ||
+                !serviceItems
+            ) {
+                console.warn(
+                    "Image preview setup failed: missing required elements"
+                );
+                return;
+            }
+
+            let isActive = false;
+            let targetX = 0;
+            let targetY = 0;
+
+            // Update image on service item hover
+            serviceItems.forEach((item) => {
+                item.addEventListener("mouseenter", () => {
+                    const imageSrc = item.getAttribute("data-image");
+                    if (imageSrc) {
+                        previewImage.src = imageSrc;
+                    }
+                });
+            });
+
+            // Handle section hover to show/hide preview
+            serviceSection.addEventListener("mouseenter", () => {
+                isActive = true;
+                gsap.to(previewContainer, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power1.out",
+                });
+            });
+
+            serviceSection.addEventListener("mouseleave", () => {
+                isActive = false;
+                gsap.to(previewContainer, {
+                    scale: 0,
+                    duration: 0.3,
+                    ease: "power1.out",
+                });
+            });
+
+            // Update mouse position on mousemove
+            serviceSection.addEventListener("mousemove", (e) => {
+                targetX = e.pageX;
+                targetY = e.pageY;
+            });
+
+            // Smoothly follow mouse using GSAP ticker
+            gsap.ticker.add(() => {
+                if (!isActive) return;
+                gsap.to(previewContainer, {
+                    x: targetX,
+                    y: targetY,
+                    xPercent: -10,
+                    yPercent: -10,
+                    duration: 0.5,
+                    ease: "power1.out",
+                    overwrite: "auto", // Prevents overlapping tweens
+                });
+            });
+        }
+
+        function videoPopup() {
+            const videoBtn = document.querySelector(".video-btn");
+            const popup = document.querySelector("#video-popup");
+            const closeBtn = document.querySelector(".close-btn");
+
+            if (!videoBtn || !popup || !closeBtn) {
+                console.warn(
+                    "Video popup setup failed: missing required elements"
+                );
+                return;
+            }
+
+            // Open popup
+            videoBtn.addEventListener("click", () => {
+                popup.style.display = "flex";
+                gsap.fromTo(
+                    popup,
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 1, scale: 1, duration: 0.3, ease: "power1.out" }
+                );
+            });
+
+            // Close popup
+            closeBtn.addEventListener("click", () => {
+                gsap.to(popup, {
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.3,
+                    ease: "power1.out",
+                    onComplete: () => {
+                        popup.style.display = "none";
+                    },
+                });
+            });
+
+            // Close on click outside popup content
+            popup.addEventListener("click", (e) => {
+                if (e.target === popup) {
+                    gsap.to(popup, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.3,
+                        ease: "power1.out",
+                        onComplete: () => {
+                            popup.style.display = "none";
+                        },
+                    });
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && popup.style.display === "flex") {
+                    gsap.to(popup, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.3,
+                        ease: "power1.out",
+                        onComplete: () => {
+                            popup.style.display = "none";
+                        },
+                    });
+                }
+            });
+        }
+        videoPopup();
+        smoothScroll();
+        imagePreview();
+        mobileMenu();
+        accordion();
+    });
+</script>
+
+<style is:global lang="scss">
+    @use "../styles/globals";
+    @use "../styles/utils" as *;
+    $line-thickness: 2px;
+    .main {
+        position: relative;
+    }
+    .header {
+        position: relative;
+        z-index: 900;
+        margin-bottom: -80px;
+        &__container {
+            min-height: 70px;
+            justify-content: center;
+        }
+
+        &__nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        &__logo {
+            font-family:
+                "Heading",
+                system-ui,
+                -apple-system,
+                Avenir,
+                Helvetica,
+                Arial,
+                sans-serif;
+            font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+            text-decoration: none;
+            color: var(--color-text-white);
+            flex-grow: 1;
+        }
+        &__menu {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            font-size: var(--fs-md);
+            font-weight: 500;
+            inset: 0;
+            background-color: var(--color-white);
+            transform: translateX(100%);
+            transition: 0.5s ease transform;
+            a {
+                color: var(--color-heading-dark);
+            }
+            z-index: inherit;
+        }
+        &__menu-toggler {
+            position: relative;
+            width: 30px;
+            height: 20px;
+            z-index: 1;
+
+            .line {
+                position: absolute;
+                width: 100%;
+                height: $line-thickness;
+                left: 0;
+                background-color: var(--color-white);
+                &:nth-of-type(1) {
+                    top: 0;
+                    transition:
+                        transform 300ms 0ms cubic-bezier(0.23, 1, 0.32, 1),
+                        top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+                        background-color 0ms 300ms
+                            cubic-bezier(0.23, 1, 0.32, 1);
+                }
+                &:nth-of-type(2) {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: var(--color-white);
+                    transition: background-color 300ms 300ms
+                        cubic-bezier(0.23, 1, 0.32, 1);
+                }
+                &:nth-of-type(3) {
+                    bottom: 0;
+                    transition:
+                        transform 300ms 0ms cubic-bezier(0.23, 1, 0.32, 1),
+                        bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+                        background-color 0ms 300ms
+                            cubic-bezier(0.23, 1, 0.32, 1);
+                }
+            }
+
+            &[aria-expanded="true"] {
+                .line {
+                    background-color: var(--color-dark);
+                    &:nth-of-type(1) {
+                        top: calc(50% - #{$line-thickness / 2});
+                        transform: rotate(45deg);
+                        transition:
+                            top 300ms 0ms cubic-bezier(0.23, 1, 0.32, 1),
+                            transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+                    }
+                    &:nth-of-type(2) {
+                        opacity: 0;
+                    }
+                    &:nth-of-type(3) {
+                        bottom: calc(50% - #{$line-thickness / 2});
+                        transform: rotate(-45deg);
+                        transition:
+                            bottom 300ms 0ms cubic-bezier(0.23, 1, 0.32, 1),
+                            transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: url("../assets/images/business-law.avif") no-repeat center
+            center / cover;
+        padding-top: calc(var(--space-2xl) * 3);
+        padding-bottom: var(--space-lg);
+        z-index: -1;
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            inset: 0;
+            background-color: rgba(11, 43, 27, 0.8549019608);
+            z-index: 1;
+        }
+        &__container {
+            position: relative;
+            z-index: 2;
+            flex-flow: row wrap;
+            gap: 20px;
+        }
+        &__heading {
+            width: 100%;
+            color: var(--color-heading-white);
+            font-size: clamp(4rem, 1.5rem + 8vw, 7.5rem);
+            text-align: center;
+            order: 1;
+        }
+        &__logo {
+            width: 100%;
+            font-family:
+                "Heading",
+                system-ui,
+                -apple-system,
+                Avenir,
+                Helvetica,
+                Arial,
+                sans-serif;
+            font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+            color: var(--color-heading-white);
+            text-align: center;
+            order: 3;
+        }
+
+        &__social {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            order: 4;
+            gap: 10px;
+            &-item {
+                background-color: white;
+                border-radius: 50px;
+                list-style: none;
+            }
+            &-link {
+                display: inline-flex;
+                font-size: 20px;
+                line-height: 20px;
+                color: var(--color-text-dark);
+                text-decoration: none;
+                padding: 10px;
+            }
+        }
+
+        &__divider {
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-border);
+            order: 2;
+        }
+
+        &__menu {
+            display: flex;
+            width: 100%;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            order: 5;
+            gap: 20px;
+            &-link {
+                color: var(--color-text-white);
+            }
+        }
+        &__copyright {
+            width: 100%;
+            color: var(--color-text-white);
+            font-size: 0.9rem;
+            text-align: center;
+            order: 6;
+        }
+    }
+
+    @include respond-to("tablet") {
+        .footer {
+            &__container {
+                flex-flow: row wrap;
+            }
+            &__heading {
+                order: 1;
+            }
+            &__logo {
+                display: inline-flex;
+                width: fit-content;
+                flex-grow: 1;
+                order: 2;
+            }
+
+            &__social {
+                width: fit-content;
+                order: 3;
+            }
+            &__divider {
+                order: 4;
+            }
+
+            &__menu {
+                display: inline-flex;
+                justify-content: flex-start;
+                width: fit-content;
+                flex-grow: 1;
+                order: 5;
+            }
+
+            &__copyright {
+                width: fit-content;
+                order: 6;
+            }
+        }
+    }
+    @include respond-to("laptop") {
+        .header {
+            &__menu {
+                position: relative;
+                flex-direction: row;
+                font-size: 1rem;
+                letter-spacing: 1px;
+                font-weight: 500;
+                text-transform: capitalize;
+                background-color: transparent;
+                width: fit-content;
+                transform: translateX(0);
+                gap: 25px;
+            }
+            &__menu-toggler {
+                display: none;
+            }
+        }
+    }
+</style>

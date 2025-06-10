@@ -1,0 +1,10 @@
+---
+const { type, text, iconClass } = Astro.props;
+---
+
+<a href="#" class=`btn ${type}`>
+    <span class="btn__text">{text}</span>
+    <span class="btn__icon">
+        <i class={iconClass}></i>
+    </span>
+</a>
