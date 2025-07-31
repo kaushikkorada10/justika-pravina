@@ -1,8 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import "swiper/css";
-import "swiper/css/navigation";
 ---
 
 <!doctype html>
@@ -12,9 +10,29 @@ import "swiper/css/navigation";
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Atorney website</title>
         <link
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
-            rel="stylesheet"
+            rel="preload"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+            as="style"
+            onload="this.rel='stylesheet'"
         />
+        <link
+            rel="preload"
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+            as="style"
+            onload="this.rel='stylesheet'"
+        />
+
+        <!-- Fallback for no-JavaScript scenarios -->
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+            />
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+            />
+        </noscript>
     </head>
     <body>
         <Header />
