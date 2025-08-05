@@ -1,46 +1,53 @@
 <header id="header" class="header">
-    <div class="header__container container">
-        <nav class="header__nav" aria-label="Main navigation">
+  <div class="header__container container">
+    <nav class="header__nav" aria-label="Main navigation">
 
-            <a href="/" class="header__logo" aria-label="Home">
-                <img src="/logo-pj.png" alt="Logo" class="logo-img" />
-            </a>
+        <a href="/" class="header__logo" aria-label="Home">
+        <img src="/logo-pj.png" alt="Logo" class="logo-img" />
+        </a>
 
-            <ul class="header__menu" id="main-navigation">
-                <li class="header__menu-item">
-                    <a href="#about" class="header__menu-link">About</a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="/services"> class="header__menu-link">Service</a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="/contact-us" class="header__menu-link"
-                        >Testimonial</a
-                    >
-                </li>
-                <li class="header__menu-item">
-                    <a href="#contact" class="header__menu-link">Contact</a>
-                </li>
-            </ul>
+      <ul class="header__menu" id="main-navigation">
+        <li class="header__menu-item">
+          <a href="/#about" class="header__menu-link">About</a>
+        </li>
+        <li class="header__menu-item">
+          <a href="/services" class="header__menu-link">Services</a>
+        </li>
+        <li class="header__menu-item">
+          <a href="/#testimonial" class="header__menu-link">Testimonial</a>
+        </li>
+        <li class="header__menu-item">
+          <a href="/contact-us" class="header__menu-link">Contact</a>
+        </li>
+      </ul>
 
-            <button
-                class="header__menu-toggler"
-                aria-label="Toggle menu"
-                aria-expanded="false"
-                aria-controls="main-navigation"
-            >
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </nav>
-    </div>
-    <style>
-    .logo-img {
-        height: 50px;
-        width: auto;
-        object-fit: contain;
-        display: block;
+      <button
+        class="header__menu-toggler"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </nav>
+  </div>
+
+  <style>
+.header__logo {
+  display: flex;
+  align-items: center;
+  height: auto;
+  max-height: 100px;
 }
-    </style>
+
+.logo-img {
+  height: 100%;
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+  </style>
 </header>

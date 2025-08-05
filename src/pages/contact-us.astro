@@ -1,38 +1,43 @@
 ---
+import Layout from "../layout/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <title>Contact Advocate Pravina</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Reach out to Advocate Pravina for legal consultations and case discussions." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <header>
-      <h1>Contact Us</h1>
-    </header>
+<Layout navVariant="dark">
+  <section class="contact-section" style="background-color: #0B2B1B; padding: 6rem 1rem; color: #ffffff;">
+    <div class="container" style="max-width: 900px; margin: 0 auto;">
+      <h1 style="text-align:center; margin-bottom: 2rem;">
+        Get in <span style="color: #C79855;">Touch</span>
+      </h1>
+      <p style="text-align:center; margin-bottom: 3rem; color: #cccccc;">
+        Have questions or need legal assistance? Fill out the form below and we’ll get back to you promptly.
+      </p>
 
-    <main>
-      <p>For legal consultations, please reach out through the following methods:</p>
-      <ul>
-        <li><strong>Email:</strong> pravina.advocate@example.com</li>
-        <li><strong>Phone:</strong> +91-98765-43210</li>
-        <li><strong>Office Hours:</strong> Mon to Fri, 10 AM – 6 PM</li>
-      </ul>
+      <form name="contact" method="POST" data-netlify="true" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <input type="hidden" name="form-name" value="contact" />
 
-      <p>You can also visit our office at:</p>
-      <address>
-        Justika Pravina Law Office,<br />
-        2nd Floor, ABC Complex,<br />
-        Vizag, Andhra Pradesh - 530001
-      </address>
+        <div>
+          <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+          <input type="text" id="name" name="name" required
+            style="width: 100%; padding: 0.75rem; border-radius: 8px; border: none; background: #153929; color: #ffffff;" />
+        </div>
 
-      <p>Want to know our <a href="/services">legal services?</a></p>
-    </main>
+        <div>
+          <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+          <input type="email" id="email" name="email" required
+            style="width: 100%; padding: 0.75rem; border-radius: 8px; border: none; background: #153929; color: #ffffff;" />
+        </div>
 
-    <footer>
-      <a href="/">← Back to Home</a>
-    </footer>
-  </body>
-</html>
+        <div>
+          <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+          <textarea id="message" name="message" rows="5" required
+            style="width: 100%; padding: 0.75rem; border-radius: 8px; border: none; background: #153929; color: #ffffff;"></textarea>
+        </div>
+
+        <button type="submit"
+          style="background-color: #C79855; color: #0B2B1B; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+          Submit
+        </button>
+      </form>
+    </div>
+  </section>
+</Layout>
