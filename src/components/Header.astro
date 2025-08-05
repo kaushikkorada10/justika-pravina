@@ -1,7 +1,11 @@
 <header id="header" class="header">
     <div class="header__container container">
         <nav class="header__nav" aria-label="Main navigation">
-            <a href="/" class="header__logo" aria-label="Home">Anthony</a>
+            
+            <a href="/" class="header__logo" aria-label="Home">
+                <img src="/logo-pj.png" alt="Logo" class="logo-img" />
+            </a>
+
             <ul class="header__menu" id="main-navigation">
                 <li class="header__menu-item">
                     <a href="#about" class="header__menu-link">About</a>
@@ -31,4 +35,12 @@
             </button>
         </nav>
     </div>
+    <style>
+    .logo-img {
+        height: 99px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+}
+    </style>
 </header>
