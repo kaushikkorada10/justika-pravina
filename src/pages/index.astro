@@ -14,6 +14,7 @@ import ServiceImg6 from "../assets/images/wills-estate.avif";
 import Quote from "../assets/images/quote.png";
 import VideoBgImg from "../assets/images/video-background.avif";
 import Customer1 from "../assets/images/testimonial.avif";
+import Badge from '/public/logo-pj.png';
 
 const serviceList = [
     {
@@ -41,6 +42,27 @@ const serviceList = [
         src: ServiceImg4,
         alt: "Family law",
         title: "Criminal Matters",
+        description:
+            "We believe you, or else, we don’t take the case. With many clients coming from a background of no experience of the criminal justice system, we promise to help with our skill, experience and expertise",
+    },
+     {
+        src: ServiceImg4,
+        alt: "Family law",
+        title: "Cyber Law",
+        description:
+            "We believe you, or else, we don’t take the case. With many clients coming from a background of no experience of the criminal justice system, we promise to help with our skill, experience and expertise",
+    },
+     {
+        src: ServiceImg4,
+        alt: "Family law",
+        title: "Civil Law",
+        description:
+            "We believe you, or else, we don’t take the case. With many clients coming from a background of no experience of the criminal justice system, we promise to help with our skill, experience and expertise",
+    },
+     {
+        src: ServiceImg4,
+        alt: "Family law",
+        title: "Arbotery law",
         description:
             "We believe you, or else, we don’t take the case. With many clients coming from a background of no experience of the criminal justice system, we promise to help with our skill, experience and expertise",
     },
@@ -89,7 +111,7 @@ const faqs = [
         answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
     },
     {
-        question: "How do I get started?",
+        question: "How do we get started?",
         answer: "I handle a range of legal matters including criminal defense, family law, personal injury, business law, real estate, and estate planning.",
     },
 ];
@@ -104,6 +126,15 @@ const faqs = [
         <div class="hero__bg bg-2"></div>
         <div class="hero__container container">
             <div class="hero__content">
+            <Image
+  src={Badge}
+  alt="Justice badge"
+  widths={[150, 300, 450]}
+  sizes="150px"
+  class="hero__badge"
+  loading="eager"
+  decoding="async"
+/>
                 <p
                     class="section-label"
                     aria-label="Section label: Justice, Expertise, Results"
@@ -115,6 +146,7 @@ const faqs = [
                         >Justice, Expertise, Results</span
                     >
                 </p>
+                
                 <h1 class="hero__heading heading">
                     Diligence + Solutions Ethical Lawyers
                 </h1>
@@ -419,6 +451,15 @@ We work best teaming up with leading barristers and counsels of expertise to ach
         </div>
     </section>
     <section id="contact" class="contact">
+            <style>
+.hero__badge{
+  width:150px; height:150px;
+  display:block; margin:0 0 .75rem;
+  object-fit:contain;  /* preserves full artwork */
+  border:0; outline:0; background:transparent;
+  box-shadow:none; filter:none; transform:translateZ(0);
+}
+            </style>
         <div class="contact__container container">
             <div class="contact__media">
                 <Image src={Antony3} alt="Image of Antony" />
@@ -433,14 +474,7 @@ We work best teaming up with leading barristers and counsels of expertise to ach
                             <label for="your-name" class="contact-form__label"
                                 >Your name</label
                             >
-                            <input
-                                type="text"
-                                name="your_name"
-                                id="your-name"
-                                placeholder="Your name"
-                                required
-                                aria-required="true"
-                            />
+
                         </div>
                         <div class="contact-form__group">
                             <label for="your-email" class="contact-form__label"
