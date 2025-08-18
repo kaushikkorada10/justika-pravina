@@ -57,7 +57,11 @@
     .header__menu-toggler[aria-expanded="true"] .line:nth-child(2){opacity:0;}
     .header__menu-toggler[aria-expanded="true"] .line:nth-child(3){top:13px;transform:rotate(-45deg);background:var(--color-heading-dark);}
     @media(min-width:769px){.header__menu-toggler{display:none;}}
+   @media (min-width: 769px){
+  .header__menu{ margin-left: auto; }  /* push nav links to the right */
+}
     /* Mobile full-screen menu */
+
     @media(max-width:768px){
       .header__menu{
         position:fixed; inset:0; width:100vw; height:100dvh; background:#fff;
