@@ -10,16 +10,16 @@
 
   <style>
     :root{
-      --color-white:#ffffff;
-      --color-dark:#0B2B1B;
-      --color-text-white:#ffffff;
-      --color-text-dark:#111111;
-      --color-heading-white:#ffffff;
-      --color-heading-dark:#0a0a0a;
-      --color-border:rgba(255,255,255,0.25);
-      --accent:#C79855;
-      --field-bg:#153929;
-      --radius:10px;
+  --color-white:#ffffff;          /* stays white */
+  --color-dark:#39c0e562;           /* <<< Navbar + Footer background (light blue) */
+  --color-text-white:#ffffff;     /* White text (if used on dark backgrounds) */
+  --color-text-dark:#0D1B2A;      /* <<< Body text color (navy for contrast) */
+  --color-heading-white:#ffffff;  /* White headings */
+  --color-heading-dark:#0D1B2A;   /* <<< Dark headings (navy) */
+  --color-border:rgba(18, 18, 19, 0.25); /* <<< Light blue border/divider */
+  --accent:#FFDDAE;               /* <<< Accent color (peachy highlight) */
+  --field-bg:#39c0e562;             /* <<< Service card background (light aqua) */
+  --radius:10px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial, sans-serif;line-height:1.6;background:#fff;color:#111}
@@ -74,7 +74,18 @@
     html.nav-lock, body.nav-lock{overflow:hidden;}
 
     /* ===== Section: Services ===== */
-    .service-section{background:var(--color-dark); padding:6rem 1rem; color:var(--color-text-white);}
+   .service-section{
+  position: relative;
+  padding: 6rem 1rem;
+  color: var(--color-text-white);
+  background: #0B2B1B; /* fallback color while image loads */
+  background-image: url('/public/background.png'); /* <-- use PNG/JPG/WebP */
+  background-size: cover;
+  height: auto; /* full viewport height */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional */
+}
     .service-title{
       text-align:center;margin:0 0 24px; font-size:clamp(2rem,4vw,4.2rem); line-height:1.1; color:#fff;
     }
@@ -90,7 +101,15 @@
       gap:24px;
       margin-top:24px;
     }
-
+        .service-section > .container{
+      position: relative; /* keep content above overlay */
+      z-index: 1;
+    }
+      .service-section::before{
+        content:"";
+        position:absolute; inset:0;
+        background: rgba(11, 43, 27, 0.65); /* tweak darkness as needed */
+      }
     .service-card{
       border:1px solid #244B3D;
       border-radius:12px;
@@ -123,6 +142,17 @@
     .footer__menu{display:flex;gap:20px;list-style:none;margin:0;padding:0;}
     .footer__menu-link{text-decoration:none;color:#fff;}
     .footer__copyright{font-size:0.9rem;}
+    
+    .bg-img{
+         margin: 0;
+        padding: 0;
+        background-image: url('images/logo-bg.png'); /* replace with actual path */
+        background-repeat: no-repeat;
+        background-size: cover;   /* scales image to cover the screen */
+        background-position: center;
+        background-attachment: fixed; /* optional: keeps image fixed while scrolling */
+        font-family: Arial, sans-serif;
+    }
   </style>
 </head>
 
@@ -159,19 +189,20 @@
 
       <div class="services-grid">
         <!-- Family Law -->
-        <article class="service-card">
-          <img src="/images/family-law.avif" alt="Family Law" class="service-card__image" />
+       <a href="/services-l3/family-law.html"> <article class="service-card">
+          <img src="/public/family-law-2.png" alt="Family Law" class="service-card__image" />
           <div class="service-card__body">
             <h3 class="service-card__title">Family Law</h3>
             <p class="service-card__desc">
               We fight, so you don’t have to. Family disputes are difficult because relationships often continue beyond the case.
             </p>
           </div>
-        </article>
+        </article></a>
 
         <!-- Migration Matters -->
+      <a href="/services-l3/migration-matters.html"> 
         <article class="service-card">
-          <img src="/src/assets/images/business-law.avif" alt="Migration Matters" class="service-card__image" />
+          <img src="/public/mitigation.png" alt="Migration Matters" class="service-card__image" />
           <div class="service-card__body">
             <h3 class="service-card__title">Migration Matters</h3>
             <p class="service-card__desc">
@@ -179,10 +210,10 @@
             </p>
           </div>
         </article>
-
+      </a>
         <!-- Commercial Matters -->
-        <article class="service-card">
-          <img src="/src/assets/images/criminal-defense.avif" alt="Commercial Matters" class="service-card__image" />
+     <a href="/services-l3/commercial-matters.html">  <article class="service-card">
+          <img src="/public/criminal-defense-2.png" alt="Commercial Matters" class="service-card__image" />
           <div class="service-card__body">
             <h3 class="service-card__title">Commercial Matters</h3>
             <p class="service-card__desc">
@@ -190,10 +221,11 @@
             </p>
           </div>
         </article>
-
+      </a> 
         <!-- Criminal Matters -->
+      <a href="/services-l3/criminal-matters.html">  
         <article class="service-card">
-          <img src="./assets/images/family-law.avif" alt="Criminal Matters" class="service-card__image" />
+          <img src="/public/criminal-defense-2.png" alt="Criminal Matters" class="service-card__image" />
           <div class="service-card__body">
             <h3 class="service-card__title">Criminal Matters</h3>
             <p class="service-card__desc">
@@ -201,6 +233,45 @@
             </p>
           </div>
         </article>
+      </a>
+        <!-- Cyber law -->
+      <a href="/services-l3/cyber-law.html">
+        <article class="service-card">
+          <img src="/public/criminal-defense-2.png" alt="Criminal Matters" class="service-card__image" />
+          <div class="service-card__body">
+            <h3 class="service-card__title">Cyber law</h3>
+            <p class="service-card__desc">
+              We believe you—or we don’t take the case. Trusted guidance for clients unfamiliar with the justice system.
+            </p>
+          </div>
+        </article>
+      </a>
+        <!-- Civil law -->
+         <a href="/services-l3/civil-law.html">
+        <article class="service-card">
+          <img src="/public/background.png" alt="Criminal Matters" class="service-card__image" />
+          <div class="service-card__body">
+            <h3 class="service-card__title">Civil law</h3>
+            <p class="service-card__desc">
+              We believe you—or we don’t take the case. Trusted guidance for clients unfamiliar with the justice system.
+            </p>
+          </div>
+        </article>
+          </a>
+
+      <!-- arbotory law -->
+      <a href="/services-l3/arbotory.html">
+        <article class="service-card">
+          <img src="/public/criminal-defense-2.png" alt="Criminal Matters" class="service-card__image" />
+          <div class="service-card__body">
+            <h3 class="service-card__title">Arbotery law</h3>
+            <p class="service-card__desc">
+              We believe you—or we don’t take the case. Trusted guidance for clients unfamiliar with the justice system.
+            </p>
+          </div>
+        </article>
+    </a>
+        
       </div>
     </div>
   </section>
@@ -282,3 +353,4 @@
   </script>
 </body>
 </html>
+

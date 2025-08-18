@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Justica Pravena — About Us</title>
+  <title>Justica Pravena — Criminal Matters</title>
 
   <!-- Remix Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"/>
@@ -11,7 +11,7 @@
   <style>
     :root{
       --color-white:#ffffff;
-      --color-dark:#39c0e562;  /* navbar + footer background */
+      --color-dark:#39c0e562;
       --color-text-white:#ffffff;
       --color-text-dark:#0D1B2A;
       --color-heading-white:#ffffff;
@@ -66,14 +66,16 @@
     /* Sections */
     .section{padding:3rem 0;}
     .section__title{font-size:clamp(1.5rem,2.5vw,2rem);color:var(--color-heading-dark);margin:0 0 1rem;}
-    .muted{color:#425466}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
     .cta{background:var(--field-bg);border:1px solid var(--color-border);border-radius:12px;padding:1.25rem;transition:.2s;}
     .cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);border-color:color-mix(in srgb, var(--accent) 45%, #244B3D);}
     .cta h3{margin:.25rem 0 .5rem;color:#fff;font-size:1.15rem;}
     .cta p{margin:0;color:#f4f6f8;}
-
-    /* CTA */
+    .list{margin:.5rem 0 0;padding-left:1.1rem;color:#0D1B2A;}
+    .list li{margin:.35rem 0;}
+    .steps{counter-reset:step;display:grid;gap:14px;}
+    .step{background:var(--field-bg);border:1px solid var(--color-border);border-radius:12px;padding:1rem 1.1rem;color:#0D1B2A;position:relative;}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:-10px;top:-10px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#000;font-weight:700;border:2px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.15);}
     .cta{background:linear-gradient(180deg,rgba(11,43,27,.85),rgba(11,43,27,.85)),url('/public/background.png') center/cover no-repeat fixed;color:#fff;border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;}
     .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#111;padding:.65rem 1rem;border-radius:999px;text-decoration:none;font-weight:700;}
 
@@ -98,8 +100,8 @@
       <nav class="header__nav">
         <a href="/" class="header__logo"><img src="/logo-pj.png" alt="Logo"/></a>
         <ul class="header__menu" id="main-navigation">
-          <li class="header__menu-item"><a href="/about" class="header__menu-link" style="text-decoration:underline;">About</a></li>
-          <li class="header__menu-item"><a href="/services" class="header__menu-link">Services</a></li>
+          <li class="header__menu-item"><a href="/about" class="header__menu-link">About</a></li>
+          <li class="header__menu-item"><a href="/services" class="header__menu-link" style="text-decoration:underline;">Services</a></li>
           <li class="header__menu-item"><a href="/contact-us" class="header__menu-link">Contact</a></li>
         </ul>
         <button class="header__menu-toggler" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-navigation">
@@ -113,40 +115,36 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <span class="hero__eyebrow"><i class="ri-group-line"></i> Who We Are</span>
-      <h1 class="hero__title">About <span class="accent">Justica Pravena</span></h1>
-      <p class="hero__lead">We are a team of dedicated legal professionals blending experience with empathy to guide our clients through complex legal challenges.</p>
+      <span class="hero__eyebrow"><i class="ri-gavel-line"></i> Practice Area</span>
+      <h1 class="hero__title">Trusted & Strategic <span class="accent">Criminal Matters</span></h1>
+      <p class="hero__lead">Whether you’re accused or affected, we provide rigorous defense and fair advocacy across all criminal law concerns.</p>
     </div>
   </section>
 
-  <!-- Mission -->
+  <!-- What We Handle -->
   <section class="section">
     <div class="container">
-      <h2 class="section__title">Our Mission</h2>
-      <p class="muted">To deliver justice with compassion, providing innovative and practical legal solutions tailored to our clients’ needs.</p>
-    </div>
-  </section>
-
-  <!-- Our Values -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section__title">Our Values</h2>
+      <h2 class="section__title">What We Handle</h2>
       <div class="grid">
-        <div class="cta"><h3>Integrity</h3><p>We uphold honesty and ethical standards in every case we take on.</p></div>
-        <div class="cta"><h3>Empathy</h3><p>Understanding our clients’ situations is at the heart of our practice.</p></div>
-        <div class="cta"><h3>Excellence</h3><p>We strive for the highest quality in legal representation and service.</p></div>
+        <div class="cta"><h3>Bail & Anticipatory Bail</h3><p>Swift petitions for liberty and interim reliefs before arrest.</p></div>
+        <div class="cta"><h3>White Collar Crimes</h3><p>Defense in fraud, corruption, money laundering, and cyber-crime cases.</p></div>
+        <div class="cta"><h3>Narcotics & Special Acts</h3><p>Expert representation in NDPS, POCSO, SC/ST, and other special legislations.</p></div>
+        <div class="cta"><h3>Trial & Appeals</h3><p>End-to-end representation in trial courts, High Courts, and Supreme Court.</p></div>
+        <div class="cta"><h3>Domestic Violence & Harassment</h3><p>Protective orders and criminal complaints for victims or defense for the accused.</p></div>
+        <div class="cta"><h3>Compliance & Advisory</h3><p>Preventive strategies and legal advice to avoid criminal liability.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Our Team -->
+  <!-- Process -->
   <section class="section">
     <div class="container">
-      <h2 class="section__title">Meet Our Team</h2>
-      <div class="grid">
-        <div class="cta"><h3>Adv. John Doe</h3><p>Founder & Senior Partner, 20+ years in criminal and civil litigation.</p></div>
-        <div class="cta"><h3>Adv. Jane Smith</h3><p>Head of Family & Migration law, known for her empathetic client approach.</p></div>
-        <div class="cta"><h3>Adv. Michael Lee</h3><p>Commercial disputes expert, specializing in arbitration and cross-border cases.</p></div>
+      <h2 class="section__title">Our Process</h2>
+      <div class="steps">
+        <div class="step"><h4>Immediate Response</h4><p>Urgent bail and protection applications to secure liberty.</p></div>
+        <div class="step"><h4>Case Preparation</h4><p>Gathering evidence, witness statements, and detailed analysis.</p></div>
+        <div class="step"><h4>Defense Strategy</h4><p>Structured arguments to challenge prosecution and ensure fair trial.</p></div>
+        <div class="step"><h4>Appeals & Revisions</h4><p>Post-trial remedies and higher court advocacy if required.</p></div>
       </div>
     </div>
   </section>
@@ -155,9 +153,9 @@
   <section class="section">
     <div class="container">
       <div class="cta">
-        <h3>Want to work with us?</h3>
-        <p>Our experienced legal team is here to support you in your legal journey.</p>
-        <a href="/contact-us" class="btn"><i class="ri-phone-line"></i> Contact Us</a>
+        <h3>Need urgent legal defense?</h3>
+        <p>Our team is available for immediate bail, defense, and criminal advisory support.</p>
+        <a href="/contact-us" class="btn"><i class="ri-phone-line"></i> Contact Us Now</a>
       </div>
     </div>
   </section>
