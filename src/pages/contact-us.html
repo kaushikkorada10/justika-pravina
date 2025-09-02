@@ -13,7 +13,7 @@
       --color-white:#ffffff;
       --color-dark:#39c0e562;  /* navbar + footer background */
       --color-text-white:#ffffff;
-      --color-text-dark:#0D1B2A;
+      --color-text-dark:#00050a;
       --color-heading-white:#ffffff;
       --color-heading-dark:#0D1B2A;
       --color-border:rgba(18,18,19,0.25);
@@ -164,7 +164,7 @@
         <ul class="header__menu" id="main-navigation">
           <li class="header__menu-item"><a href="/about" class="header__menu-link">About</a></li>
           <li class="header__menu-item"><a href="/services" class="header__menu-link">Services</a></li>
-          <li class="header__menu-item"><a href="/contact-us" class="header__menu-link" style="text-decoration:underline;">Get in Touch</a></li>
+          <li class="header__menu-item"><a href="/contact-us" class="header__menu-link" style="text-decoration:underline;">Contact us</a></li>
         </ul>
 
         <button class="header__menu-toggler" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-navigation" type="button">
@@ -197,25 +197,25 @@
             Thanks! Your message has been sent. We’ll get back to you shortly.
           </div>
 
-          <form id="contact-form" novalidate>
+          <form id="contact-form" novalidate style="color: white;">
             <div class="form-row">
               <div class="field">
-                <label class="label" for="name">Full Name</label>
+                <label class="label" for="name"  style="color: white;">Full Name</label>
                 <input id="name" name="name" class="input" type="text" autocomplete="name" required />
-                <div class="error" id="err-name">Please enter your name.</div>
+                <div class="error" id="err-name" >Please enter your name.</div>
               </div>
               <div class="field">
-                <label class="label" for="email">Email</label>
+                <label class="label" for="email"  style="color: white;">Email</label>
                 <input id="email" name="email" class="input" type="email" autocomplete="email" required />
-                <div class="error" id="err-email">Please enter a valid email address.</div>
+                <div class="error" id="err-email"  >Please enter a valid email address.</div>
               </div>
             </div>
 
             <div class="form-row">
               <div class="field">
-                <label class="label" for="phone">Phone</label>
+                <label class="label" for="phone"  style="color: white;">Phone</label>
                 <input id="phone" name="phone" class="input" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 9XXXXXXXXX" required />
-                <div class="error" id="err-phone">Please enter a valid phone number.</div>
+                <div class="error" id="err-phone"  >Please enter a valid phone number.</div>
               </div>
               <div class="field">
                 <label class="label" for="service">Service Area</label>
@@ -235,10 +235,10 @@
             </div>
 
             <div class="field">
-              <label class="label" for="message">Your Message</label>
+              <label class="label" for="message"  style="color: white;">Your Message</label>
               <textarea id="message" name="message" class="textarea" placeholder="Briefly describe your matter..." required></textarea>
-              <div class="error" id="err-message">Please add a short description.</div>
-              <div class="hint">Avoid sharing sensitive IDs or passwords. We’ll request documents securely if needed.</div>
+              <div class="error" id="err-message"  style="color: white;">Please add a short description.</div>
+              <div class="hint" style="color: white;">Avoid sharing sensitive IDs or passwords. We’ll request documents securely if needed.</div>
             </div>
 
             <div class="field" style="margin-top:.4rem;">
@@ -261,7 +261,8 @@
         <aside class="info" aria-label="Contact information">
           <div class="tile">
             <h3><i class="ri-map-pin-line"></i> Office</h3>
-            <p>2nd Floor, Landmark Plaza, MG Road, Bengaluru 560001</p>
+            <p>Cscape appartment 7-5-176/1 f601,
+Pandurangapuram, rk beach, near to aqua swimming pool, visakhapatnam, 530003</p>
             <p class="muted" style="color:#cbd5e1">Mon–Fri: 9:30 AM – 6:30 PM • Sat: 10 AM – 2 PM</p>
           </div>
           <div class="tile">
@@ -272,13 +273,7 @@
             <h3><i class="ri-customer-service-2-line"></i> Phone</h3>
             <p><a href="tel:+911234567890">+91 12345 67890</a></p>
           </div>
-          <div class="tile">
-            <h3><i class="ri-map-2-line"></i> Find Us</h3>
-            <!-- Replace the src with your real Google Maps embed -->
-            <iframe class="map" title="Office location map"
-              src="https://maps.google.com/maps?q=MG%20Road%20Bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+
         </aside>
       </div>
     </div>

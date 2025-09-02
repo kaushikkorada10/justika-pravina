@@ -17,7 +17,7 @@ import ServiceImg9 from "../assets/images/arbitra-1.avif";
 import Quote from "../assets/images/quote.png";
 import VideoBgImg from "../assets/images/video-background.avif";
 import Customer1 from "../assets/images/testimonial.avif";
-import Badge from '/public/logo-pj.png';
+import Badge from '/public/home-img.png';
 
 const serviceList = [
     {
@@ -137,6 +137,7 @@ const faqs = [
   class="hero__badge"
   loading="eager"
   decoding="async"
+
 />
                 <p
                     class="section-label"
@@ -456,11 +457,16 @@ We work best teaming up with leading barristers and counsels of expertise to ach
     <section id="contact" class="contact">
             <style>
 .hero__badge{
-  width:150px; height:150px;
+  width:250px; height:250px;
   display:block; margin:0 0 .75rem;
   object-fit:contain;  /* preserves full artwork */
   border:0; outline:0; background:transparent;
   box-shadow:none; filter:none; transform:translateZ(0);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      overflow: hidden;
+      display: block;
+
 }
             </style>
         <div class="contact__container container">
